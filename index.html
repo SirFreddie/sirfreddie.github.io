@@ -11,15 +11,35 @@
   <body>
     <div id="mensaje">🧭 Escanea los marcadores para comenzar la aventura</div>
 
-    <a-scene embedded arjs="sourceType: webcam; trackingMethod: best;" init-game>
+    <h1 style="position: fixed; bottom: 100px; left: 10px; color: white;">Pista 1</h1>
+    <img id="pista1" src="assets/patrones/marcador1.png" alt="pista 1" style="width: 100px; position: fixed; bottom: 10px; left: 10px;" />
+    <img id="pista2" src="assets/patrones/marcador2.png" alt="pista 2" style="width: 100px; position: fixed; bottom: 10px; left: 10px; display: none;" />
+    <img id="pista3" src="assets/patrones/marcador3.png" alt="pista 3" style="width: 100px; position: fixed; bottom: 10px; left: 10px; display: none;" />
+
+    <a-assets>
+      <img id="marker2" src="assets/patrones/marcador2.png" crossorigin="anonymous">
+      <img id="marker3" src="assets/patrones/marcador3.png" crossorigin="anonymous">
+    </a-assets>
+
+    <a-scene embedded init-game>
       <a-marker type="pattern" url="assets/patrones/marcador1.patt" id="m1">
-        <a-entity gltf-model="assets/modelos/mapa.glb"
+        <!-- <a-entity gltf-model="assets/modelos/mapa.glb"
                   position="0 0 0"
                   scale="0.5 0.5 0.5"
-                  rotation="-90 0 0"></a-entity>
+                  rotation="-90 0 0"></a-entity> -->
+        <a-image src="#marker2"
+                 width="1" height="0.5"
+                 position="0 0 0"
+                 rotation="-90 0 0"
+                 material="transparent:true">
         <a-text value="Pista 1: Encuentra la llave" position="0 1 0" align="center"></a-text>
       </a-marker>
       <a-marker type="pattern" url="assets/patrones/marcador2.patt" id="m2">
+        <a-image src="#marker3"
+                 width="1" height="0.5"
+                 position="0 0 0"
+                 rotation="-90 0 0"
+                 material="transparent:true">
         <a-entity gltf-model="assets/modelos/llave.glb"
                   position="0 0 0"
                   scale="0.5 0.5 0.5"
